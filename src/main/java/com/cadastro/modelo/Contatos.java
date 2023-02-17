@@ -1,8 +1,8 @@
-package cadastro.modelo;
+package com.cadastro.modelo;
 
 import java.time.LocalDate;
 
-public class Cadastro {
+public class Contatos {
 
 	private Long id;
 	private String nome;
@@ -10,7 +10,7 @@ public class Cadastro {
 	private String endereco;
 	private LocalDate dataNascimento;
 	
-	public Cadastro() {
+	public Contatos() {
 		
 	}
 

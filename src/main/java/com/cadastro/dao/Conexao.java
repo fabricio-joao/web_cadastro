@@ -1,4 +1,4 @@
-package cadastro.dao;
+package com.cadastro.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

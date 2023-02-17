@@ -1,4 +1,4 @@
-package cadastro.dao;
+package com.cadastro.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,14 +9,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import cadastro.modelo.Cadastro;
+import com.cadastro.modelo.Contatos;
 
 
-public class CadastroDAO {
+public class ContatoDAO {
 
 	Connection conexao;
 
-	public CadastroDAO(Connection conexao) {
+	public ContatoDAO(Connection conexao) {
 		this.conexao = new Conexao().conectar();
 	}
 	
@@ -40,7 +40,7 @@ public class CadastroDAO {
 	}
 
 	
-	public void inserir(Cadastro obj) {
+	public void inserir(Contatos obj) {
 		PreparedStatement ps = null;
 		String inserir = "INSERT INTO contatos (nome, email, endereco, dataNascimento) VALUES (?, ?, ?, ?)";
 		try {
@@ -61,7 +61,7 @@ public class CadastroDAO {
 		}
 	}
 
-	public void deletar(Cadastro obj) {
+	public void deletar(Contatos obj) {
 		
 		PreparedStatement ps = null;
 		String deletar = "DELETE FROM contatos WHERE id=?";
@@ -80,19 +80,19 @@ public class CadastroDAO {
 	}
 
 	
-	public List<Cadastro> buscarLista() {
+	public List<Contatos> buscarLista() {
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String listar = "SELECT * FROM contatos ORDER BY nome";
-		List<Cadastro> lista = new ArrayList<>();
+		List<Contatos> lista = new ArrayList<>();
 
 		try {
 			ps = conexao.prepareStatement(listar);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				Cadastro contatos = new Cadastro();
+				Contatos contatos = new Contatos();
 				contatos.setId(rs.getLong(1));
 				contatos.setNome(rs.getString(2));
 				contatos.setEmail(rs.getString(3));
@@ -112,7 +112,7 @@ public class CadastroDAO {
 		return lista;
 	}
 
-	public void mostarContato(Cadastro id) {
+	public void mostarContato(Contatos id) {
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -139,7 +139,7 @@ public class CadastroDAO {
 		}
 	}
 
-	public void editar(Cadastro id) {
+	public void editar(Contatos id) {
 		PreparedStatement ps = null;
 		String atualizar = "UPDATE contatos SET nome=?, email=?, endereco=?, dataNascimento=? WHERE id=? ";
 		try {

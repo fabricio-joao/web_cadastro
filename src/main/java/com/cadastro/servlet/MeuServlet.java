@@ -1,4 +1,4 @@
-package cadastro.servlet;
+package com.cadastro.servlet;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cadastro.dao.CadastroDAO;
-import cadastro.dao.Conexao;
-import cadastro.modelo.Cadastro;
+import com.cadastro.dao.ContatoDAO;
+import com.cadastro.dao.Conexao;
+import com.cadastro.modelo.Contatos;
 
 
 @WebServlet("/adicionaContato")
@@ -20,8 +20,8 @@ public class MeuServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
     
-	CadastroDAO dao = new CadastroDAO(Conexao.conectar()) ;  
-	Cadastro cadastro = new Cadastro();
+	ContatoDAO dao = new ContatoDAO(Conexao.conectar()) ;  
+	Contatos cadastro = new Contatos();
     
     public MeuServlet() {
        
